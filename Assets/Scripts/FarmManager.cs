@@ -18,10 +18,10 @@ public class FarmManager : MonoBehaviour
 
 
 
-    public void SelectedPlant(PlantItem newPlant)
+    public void SelectedPlant(PlantItem _newPlant)
     {
         
-        if (selectedPlant == newPlant)
+        if (selectedPlant == _newPlant)
         {
             selectedPlant.btnImage.color = buyColor;
             selectedPlant.btnText.text = "Buy";
@@ -36,7 +36,7 @@ public class FarmManager : MonoBehaviour
                 selectedPlant.btnImage.color = buyColor;
                 selectedPlant.btnText.text = "Buy";
             }
-            selectedPlant = newPlant;
+            selectedPlant = _newPlant;
             selectedPlant.btnImage.color = cancelColor;
             selectedPlant.btnText.text = "Cancle";
             isPlanting = true;
@@ -46,9 +46,9 @@ public class FarmManager : MonoBehaviour
         
     }
 
-    public void Transaction(int value)
+    public void Transaction(int _value)
     {
-        money += value;
+        money += _value;
         moneyTxt.text = ("$" + money);
     }
 }
