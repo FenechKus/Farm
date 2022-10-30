@@ -23,12 +23,6 @@ public class PlantItem : MonoBehaviour
 
         InititializeUI();
     }
-
-    void Update()
-    {
-        
-    }
-
     public void BuyPlant()
     {
         Debug.Log($"Bought {plant.plantName}");

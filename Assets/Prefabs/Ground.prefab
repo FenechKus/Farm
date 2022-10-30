@@ -209,14 +209,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9179241741212668526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3586870d5dc0d4b84a62b690668851, type: 3}
+  m_Script: {fileID: 11500000, guid: b3e305d4f1a54644a8cc4e13dad35ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantStages:
-  - {fileID: -1964166895, guid: 245a3b2ed8cebaa41b798b33c7beba72, type: 3}
-  - {fileID: 490172544, guid: 245a3b2ed8cebaa41b798b33c7beba72, type: 3}
-  - {fileID: 1952086131, guid: 245a3b2ed8cebaa41b798b33c7beba72, type: 3}
-  - {fileID: -1571055152, guid: 245a3b2ed8cebaa41b798b33c7beba72, type: 3}
+  availableColor: {r: 0, g: 1, b: 0, a: 1}
+  unavailableColor: {r: 1, g: 0, b: 0, a: 1}
+  drySpritePlot: {fileID: -1174060497, guid: 5c3e9efaf81758847bdb7bcce60871ab, type: 3}
+  normalSpritePlot: {fileID: 1102727950, guid: 245a3b2ed8cebaa41b798b33c7beba72, type: 3}
+  unavailableSprite: {fileID: -83703761, guid: 5c3e9efaf81758847bdb7bcce60871ab, type: 3}
+  isBought: 1
 --- !u!60 &9179241741212668525
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -248,6 +249,7 @@ PolygonCollider2D:
       - {x: 0, y: -1.25}
       - {x: -1.66, y: -0.4}
       - {x: -1.66, y: 0.4}
+  m_UseDelaunayMesh: 0
 --- !u!50 &9179241741212668513
 Rigidbody2D:
   serializedVersion: 4

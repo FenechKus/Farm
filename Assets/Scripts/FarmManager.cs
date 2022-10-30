@@ -11,6 +11,14 @@ public class FarmManager : MonoBehaviour
     public int money = 0;
     public TextMeshProUGUI moneyTxt;
 
+    public bool isSelecting = false;
+    //1-water 2-Fertilizer 3-buy_cell
+    public int selectedTool = 0;
+
+    public Image[] buttonsImg;
+    public Sprite normalButton;
+    public Sprite selectedButton;
+
     public Color buyColor = Color.green;
     public Color cancelColor = Color.red;
 
@@ -23,19 +31,12 @@ public class FarmManager : MonoBehaviour
         
         if (selectedPlant == _newPlant)
         {
-            selectedPlant.btnImage.color = buyColor;
-            selectedPlant.btnText.text = "Buy";
-            selectedPlant = null;
-            isPlanting = false;
+            CheckSelectionTool();
 
         }
         else
         {
-            if (selectedPlant!=null)
-            {
-                selectedPlant.btnImage.color = buyColor;
-                selectedPlant.btnText.text = "Buy";
-            }
+            CheckSelectionTool();
             selectedPlant = _newPlant;
             selectedPlant.btnImage.color = cancelColor;
             selectedPlant.btnText.text = "Cancle";
@@ -44,6 +45,47 @@ public class FarmManager : MonoBehaviour
         
         
         
+    }
+
+    public void SelectTool(int toolNumber)
+    {
+        if (toolNumber == selectedTool)
+        {
+            //deselect
+            CheckSelectionTool();
+
+        }
+        else
+        {
+            //selected
+            CheckSelectionTool();
+            isSelecting = true;
+            selectedTool = toolNumber;
+            buttonsImg[toolNumber - 1].sprite = selectedButton;
+        }
+    }
+
+    private void CheckSelectionTool()
+    {
+        if (isPlanting)
+        {
+            isPlanting = false;
+            if (selectedPlant != null)
+            {
+                selectedPlant.btnImage.color = buyColor;
+                selectedPlant.btnText.text = "Buy";
+                selectedPlant=null;
+            }
+        }
+        if (isSelecting)
+        {
+            if (selectedTool>0)
+            {
+                buttonsImg[selectedTool - 1].sprite = normalButton;
+            }
+            isSelecting= false;
+            selectedTool = 0;
+        }
     }
 
     public void Transaction(int _value)
